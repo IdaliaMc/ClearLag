@@ -1,0 +1,7 @@
+name: ClearLag
+version: 1.0
+author: ayato__
+main: fr.ayato.clearlag.Main
+commands:
+  clearlag:
+    permissions: clearlag.use

@@ -1,0 +1,4 @@
+fr\ayato\clearlag\commands\ClearLagCommand.class
+fr\ayato\clearlag\tasks\ClearLagTask.class
+fr\ayato\clearlag\Main.class
+fr\ayato\clearlag\utils\Config.class
