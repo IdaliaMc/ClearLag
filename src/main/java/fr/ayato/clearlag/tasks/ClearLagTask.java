@@ -4,6 +4,7 @@ import fr.ayato.clearlag.utils.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.TimerTask;
 
@@ -17,24 +18,24 @@ public class ClearLagTask extends TimerTask {
     public void run() {
         switch (timer) {
             case 60:
-                Bukkit.broadcastMessage("§eSupression des entitées dans §c1 minute§e!");
+                Bukkit.broadcastMessage(Config.getRepeteMessage().replace("%time%", "1 minute"));
                 break;
             case 30:
-                Bukkit.broadcastMessage("§eSupression des entitées dans §c30 secondes§e!");
+                Bukkit.broadcastMessage(Config.getRepeteMessage().replace("%time%", "30 seconds"));
                 break;
             case 10:
-                Bukkit.broadcastMessage("§eSuppression des entitées dans §c10 secondes§e!");
-                break;
-            case 4:
-                Bukkit.broadcastMessage("§eSuppression des entitées dans §c3 secondes§e.");
+                Bukkit.broadcastMessage(Config.getRepeteMessage().replace("%time%", "10 seconds"));
                 break;
             case 3:
-                Bukkit.broadcastMessage("§eSuppression des entitées dans §c2 secondes§e.");
+                Bukkit.broadcastMessage(Config.getRepeteMessage().replace("%time%", "3 seconds"));
                 break;
             case 2:
-                Bukkit.broadcastMessage("§eSuppression des entitées dans §c1 seconde§e.");
+                Bukkit.broadcastMessage(Config.getRepeteMessage().replace("%time%", "2 seconds"));
                 break;
             case 1:
+                Bukkit.broadcastMessage(Config.getRepeteMessage().replace("%time%", "1 second"));
+                break;
+            case 0:
                 clearLag();
                 break;
         }
@@ -43,14 +44,15 @@ public class ClearLagTask extends TimerTask {
 
     public static void clearLag() {
         List<String> worldsList = Config.getWorlds();
+        List<String> blackList = Config.getBlackList();
         for (String world : worldsList) {
             for (Entity entity : Bukkit.getWorld(world).getEntities()) {
-                if (!(entity instanceof Player) && !(entity instanceof Villager)) {
+                if (!blackList.contains(entity.getType().toString())) {
                     entity.remove();
                 }
             }
         }
-        Bukkit.broadcastMessage("§eSuppression des entitées effectuée avec succès!");
+        Bukkit.broadcastMessage(Config.getSuccessMessage());
         ClearLagTask.timer = Config.getTime();
     }
 }

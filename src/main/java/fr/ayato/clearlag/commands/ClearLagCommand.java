@@ -11,8 +11,6 @@ public class ClearLagCommand implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("clearlag")) {
             if (commandSender.hasPermission("clearlag.use")) {
                 ClearLagTask.clearLag();
-            } else {
-                commandSender.sendMessage("§cVous n'avez pas la permission d'utiliser cette commande !");
             }
         }
         return false;

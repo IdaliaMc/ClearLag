@@ -1,3 +1,52 @@
+#Developped by Ayato__#0069
+
+#Time in seconds for the clearlag to operate
 time: 600
+
+#Message for each prevention time of the clearlag
+repete_message : "§e§lIdalia§b§lMc §f» §eSuppression des entitées dans %time% §e!"
+
+#Message then the clearlag is executed
+success_message: "§e§lIdalia§b§lMc §f» §eSuppression des entitées effectuée avec succès !"
+
+#Worlds where the clearlag will be executed
 worlds:
   - "world"
+
+#Entities to be not removed by the clearlag
+blacklist:
+  - "ArmorStand"
+  - "EnderCrystal"
+  - "ItemFrame"
+  - "Painting"
+  - "Villager"
+  - "PLAYER"
+  - "Zombie"
+  - "Skeleton"
+  - "Creeper"
+  - "Spider"
+  - "CaveSpider"
+  - "Slime"
+  - "Ghast"
+  - "PigZombie"
+  - "Enderman"
+  - "CaveSpider"
+  - "Silverfish"
+  - "Blaze"
+  - "MagmaCube"
+  - "Bat"
+  - "Witch"
+  - "Endermite"
+  - "Guardian"
+  - "Pig"
+  - "Sheep"
+  - "Cow"
+  - "Chicken"
+  - "Squid"
+  - "Wolf"
+  - "Ocelot"
+  - "Horse"
+  - "Rabbit"
+  - "Snowman"
+  - "IronGolem"
+  - "VillagerGolem"
